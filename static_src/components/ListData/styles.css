@@ -1,0 +1,14 @@
+.list-data {
+    text-align: left;
+    overflow-y: scroll;
+    height: 99%;
+}
+
+.list-data-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.download {
+    margin: 5px 15px;
+}

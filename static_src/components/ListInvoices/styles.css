@@ -1,0 +1,10 @@
+.list-invoices {
+    text-align: left;
+    overflow-y: scroll;
+    height: 99%;
+}
+
+.list-invoices-header {
+    display: flex;
+    justify-content: space-between;
+}
