@@ -5,14 +5,15 @@ import Divider from 'material-ui/Divider';
 import Waiting from 'material-ui/svg-icons/action/autorenew';
 import Paid from 'material-ui/svg-icons/action/check-circle';
 import { lightGreen500, grey500 } from 'material-ui/styles/colors';
-import './styles.css';
 import Download from "material-ui/svg-icons/file/file-download";
+import downloadUrls from '../../utils/downloadUrls';
+import './styles.css';
 
 const ListInvoices = (props) => (
     <List className="list-invoices" >
         <Subheader className="list-invoices-header">
             { props.title }
-            <a className="download" href='http://104.197.86.169:80/excelinvoices' download><Download style={{color: '#00B0FF'}} /></a>
+            <a className="download" href={ downloadUrls.invoices } download><Download style={{color: '#00B0FF'}} /></a>
         </Subheader>
         { props.items.map(item => <div><ListItem
             leftIcon={ <Paid color={ lightGreen500 } /> }

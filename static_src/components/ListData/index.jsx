@@ -3,6 +3,7 @@ import {List, ListItem} from 'material-ui/List';
 import Download from 'material-ui/svg-icons/file/file-download';
 import Add from 'material-ui/svg-icons/content/add';
 import Subheader from 'material-ui/Subheader';
+import downloadUrls from '../../utils/downloadUrls';
 import './styles.css';
 
 const ListData = (props) => (
@@ -13,7 +14,7 @@ const ListData = (props) => (
                 {localStorage.getItem('user') === 'admin' &&
                 <Add style={{ marginLeft: '10px', color: '#00B0FF' }} onClick={ props.addNewMeter } />}
                 </div>
-            <a className="download" href='http://104.197.86.169:80/excelmeter' download><Download style={{color: '#00B0FF'}} /></a>
+            <a className="download" href={ downloadUrls.meters } download><Download style={{color: '#00B0FF'}} /></a>
         </Subheader>
         { props.items.map(item => <ListItem primaryText={ String(item['energy']) + ' кВт * ч' } secondaryText={ item['meterName'] } />) }
     </List>
