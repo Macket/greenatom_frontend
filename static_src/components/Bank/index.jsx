@@ -4,7 +4,7 @@ import ListUsers from '../ListUsers/';
 import Block from '../Block';
 
 
-export default class Index extends React.Component {
+export default class Bank extends React.Component {
     state = {
         meterReadings: [],
         users: ['Пользователь 1', 'Пользователь 2', 'Пользователь 3']
@@ -17,7 +17,7 @@ export default class Index extends React.Component {
                     users={ this.state.users }
                 />
                 <Block>
-                    <ListInvoices title="Счета" items={ ['Счёт №1'] } />
+                    <ListInvoices title="Счета" />
                 </Block>
             </div>
 

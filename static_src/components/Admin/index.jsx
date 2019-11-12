@@ -70,7 +70,7 @@ export default class Admin extends React.Component {
                     />
                 </Block>
                 <Block>
-                    <ListInvoices title="Счета" items={ [] } />
+                    <ListInvoices title="Счета" />
                 </Block>
                 <SelectField
                     floatingLabelText="Тариф"

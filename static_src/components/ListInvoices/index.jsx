@@ -15,21 +15,10 @@ const ListInvoices = (props) => (
             { props.title }
             <a className="download" href={ downloadUrls.invoices } download><Download style={{color: '#00B0FF'}} /></a>
         </Subheader>
-        { props.items.map(item => <div><ListItem
-            leftIcon={ <Paid color={ lightGreen500 } /> }
-            primaryText={ item }
-            nestedItems={ [
-                <div style={{margin: '5px 15px'}}>Аванс1 20% - 4 412 рублей</div>,
-                <div style={{margin: '5px 15px'}}>Аванс2 30% - 6 619 рублей</div>,
-                <div style={{margin: '5px 15px'}}>Основной платёж 50% - 11 031 рублей</div>,
-                <div style={{margin: '5px 15px'}}>Итого - 22 062 рублей</div>,
-            ] }
-        /><Divider inset={true} />
-        </div>) }
         <div>
             <ListItem
-                leftIcon={ <Paid color={ grey500 } /> }
-                primaryText="Счёт №2"
+                leftIcon={ <Paid color={ lightGreen500 } /> }
+                primaryText="Счёт №1"
                 nestedItems={ [
                     <div style={{margin: '5px 15px'}}>Аванс1 20% - 4 412 рублей</div>,
                     <div style={{margin: '5px 15px'}}>Аванс2 30% - 6 619 рублей</div>,

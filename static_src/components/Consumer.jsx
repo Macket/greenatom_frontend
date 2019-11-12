@@ -31,7 +31,7 @@ export default class Consumer extends React.Component {
                         items={ this.state.meters } />
                 </Block>
                 <Block>
-                    <ListInvoices title="Счета" items={ ['Счёт №1'] } />
+                    <ListInvoices title="Счета" />
                 </Block>
                 <div style={{ margin: '20px' }}>
                     <div style={ { fontSize: '36px' } }>Тариф "Экономный"</div>
