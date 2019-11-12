@@ -2,12 +2,25 @@ import React from 'react';
 import ListData from './ListData/';
 import ListInvoices from './ListInvoices/';
 import Block from './Block';
+import apiUrls from '../utils/apiUrls';
 
 
 export default class Consumer extends React.Component {
     state = {
-        meters: [{ energy: 11567, meterName: 'Счётчик №1'}, { energy: 10495, meterName: 'Счётчик №2'}],
+        meters: [],
     };
+
+    componentDidMount() {
+        fetch(apiUrls.meters, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': 'apikey',
+            },
+        })
+        .then(response => response.json())
+        .then(json_data => this.setState({ meters: [...this.state.meters,
+                { meterName: 'Счётчик №1', energy: json_data['value'] }] }));
+    }
 
     render() {
         return (

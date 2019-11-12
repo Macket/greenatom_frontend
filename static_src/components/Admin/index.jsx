@@ -6,6 +6,7 @@ import ListInvoices from '../ListInvoices/';
 import ListUsers from '../ListUsers/';
 import Block from '../Block';
 import './styles.css';
+import apiUrls from "../../utils/apiUrls";
 
 const SCALE = 100;
 
@@ -30,9 +31,19 @@ export default class Admin extends React.Component {
         tariff: 1,
     };
 
-    // componentDidMount() {
-    //     setInterval(this.addNewMeterReading, 1000);
-    // }
+    componentDidMount() {
+        fetch(apiUrls.meters, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': 'apikey',
+            },
+        })
+        .then(response => response.json())
+        .then(json_data => this.setState({ meters: [...this.state.meters,
+                { meterName: 'Счётчик №1', energy: json_data['value'] }] }));
+
+
+    }
 
     addNewMeter = () => {
         this.setState({ meters: [{ energy: 0, meterName: 'Счётчик №' + String(this.state.meters.length + 1) }, ...this.state.meters] });

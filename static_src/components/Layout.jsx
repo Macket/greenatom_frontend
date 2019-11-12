@@ -8,6 +8,7 @@ import Admin from './Admin/';
 import Bank from './Bank/';
 import Consumer from './Consumer';
 import PropTypes from "prop-types";
+import apiUrls from "../utils/apiUrls";
 
 const styles = {
   title: {
@@ -18,7 +19,7 @@ const styles = {
 const userLabels = {
     admin: 'Администратор',
     bank: 'Банк',
-    consumer: 'Потребитель. Баланс: 943',
+    consumer: 'Потребитель. Баланс: ',
 };
 
 export default class Layout extends React.Component {
@@ -28,7 +29,23 @@ export default class Layout extends React.Component {
 
     state = {
         user: localStorage.getItem('user'),
+        balance: 0,
     };
+
+    componentDidMount() {
+        const re = new RegExp('balance=(.*)__timestamp');
+        fetch(apiUrls.balance, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-API-Key': 'apikey',
+            },
+        })
+        .then(response => response.json())
+        .then(json_data => {
+            const balance = re.exec(json_data['value'])[1];
+            this.setState({ balance });
+        });
+    }
 
     handleClick = () => {
         this.props.logout();
@@ -36,6 +53,7 @@ export default class Layout extends React.Component {
 
     render() {
         let userElement = null;
+        let userLabel = userLabels[this.state.user];
         switch (this.state.user) {
             case 'admin':
                 userElement = <Admin />;
@@ -45,6 +63,7 @@ export default class Layout extends React.Component {
                 break;
             case 'consumer':
                 userElement = <Consumer />;
+                userLabel += this.state.balance;
                 break;
             default:
                 break;
@@ -53,7 +72,7 @@ export default class Layout extends React.Component {
         return (
             <div style={ { height: "100%" } }>
                 <AppBar
-                    title={<span style={styles.title}>{ userLabels[this.state.user] }</span>}
+                    title={<span style={styles.title}>{ userLabel }</span>}
                     onRightIconButtonClick={ this.handleClick }
                     iconElementLeft={<IconButton><Avatar /></IconButton>}
                     iconElementRight={<FlatButton label="Выйти" icon={ <Exit /> } />}
