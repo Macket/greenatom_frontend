@@ -1,4 +1,4 @@
 export default {
-    meters: 'http://13.59.86.114:6872/contracts/5MejhX55byHc2hJGsL3ZJtQsnqDAWviZXAb4QfwpZ31X/3EFurBrdpMFXNwRoqLVYBemTBRgFAZESVPQ',
-    balance: 'http://13.59.86.114:6872/contracts/7dQ2xxB6XLH27HbqhKHMRmhMxjGQPMxKEUfiYzs4GaJV/3EFurBrdpMFXNwRoqLVYBemTBRgFAZESVPQ',
+    meters: 'http://84.201.150.126:6862/contracts/BFmBoDhs9X2qtVfXWV1Eig7UNFY7sGoMynCVeGT43dra/3EFurBrdpMFXNwRoqLVYBemTBRgFAZESVPQ',
+    balance: 'http://84.201.150.126:6862/contracts/6GfZaTzkonoUmazavfjQHGrjmKSphaSStoS2pWk4Z38m/3EFurBrdpMFXNwRoqLVYBemTBRgFAZESVPQ',
 }
